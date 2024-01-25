@@ -15,12 +15,12 @@ export default async function ProjectLayout(props: IProjectLayoutProps) {
 
   return (
     <div>
-      <div className="max-w-screen-xl mx-auto px-4 py-8">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-8">
         <SinglePageMeta
           metadata={project.metadata}
           extra_classname="mx-auto mb-4 max-w-4xl"
         ></SinglePageMeta>
-        <article className="prose prose-lg dark:prose-invert mx-auto max-w-4xl">
+        <article className="prose md:prose-md lg:prose-lg dark:prose-invert mx-auto max-w-4xl">
           {children}
         </article>
       </div>

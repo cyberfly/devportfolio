@@ -7,10 +7,8 @@ export default async function Blog() {
   return (
     <>
       <section>
-        <div className="max-w-screen-xl mx-auto px-8 py-8">
-          <h3 className="text-3xl text-center font-bold mb-12">
-            Fathur Rahman - Portfolio
-          </h3>
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-8">
+          <h3 className="text-3xl text-center font-bold mb-12">My Portfolio</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
             {projects.map((project, index) => (

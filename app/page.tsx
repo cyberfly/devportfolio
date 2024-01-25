@@ -16,14 +16,16 @@ export default async function Home() {
   return (
     <>
       <section className="bg-slate-800">
-        <div className="max-w-screen-xl mx-auto flex justify-between px-8 py-20">
-          <div>
-            <h3 className="text-6xl font-bold mb-4">Hi, I am Fathur Rahman</h3>
-            <p className="text-4xl mb-4 text-slate-200">
+        <div className="max-w-screen-xl mx-auto flex flex-row justify-between px-4 md:px-8 pb-10 md:py-20">
+          <div className="pr-4 md:pr-0">
+            <h3 className="text-4xl md:text-6xl font-bold mb-4">
+              Hi, I am <span className="block md:inline">Fathur Rahman</span>
+            </h3>
+            <p className="text-2xl md:text-4xl mb-4 text-slate-200">
               Software Engineer at{" "}
               <a href="https://lalokalabs.co/">LaLoka Labs Co</a>
             </p>
-            <p className="text-4xl mb-12 font-semibold">
+            <p className="text-2xl md:text-4xl mb-12 font-semibold">
               i Code. i Lead. i Manage. i Teach.
             </p>
             <div>
@@ -49,7 +51,7 @@ export default async function Home() {
       </section>
 
       <section>
-        <div className="max-w-screen-xl mx-auto px-8 py-20">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-20">
           <h3 className="text-3xl font-bold mb-8">A little bit about me</h3>
 
           <p className="text-xl mb-8 text-slate-200">
@@ -73,7 +75,7 @@ export default async function Home() {
       </section>
 
       <section className="bg-slate-800">
-        <div className="max-w-screen-xl mx-auto px-8 py-20">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-20">
           <h3 className="text-3xl font-bold mb-8">Portfolio</h3>
 
           <p className="text-xl mb-8">
@@ -89,7 +91,7 @@ export default async function Home() {
       </section>
 
       <section>
-        <div className="max-w-screen-xl mx-auto px-8 py-20">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-20">
           <h3 className="text-3xl font-bold mb-8">Latest from Blog</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">

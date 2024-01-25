@@ -19,17 +19,20 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className + " min-h-screen flex flex-col"}>
         <header className="bg-slate-800">
-          <div className="max-w-screen-xl mx-auto flex justify-between py-8 px-8 text-lg ">
+          <div className="max-w-screen-xl mx-auto flex justify-between py-8 px-4 md:px-8 text-lg ">
             <Link href="/">
-              <h4 className="text-green-600 text-xl font-bold">
-                Fathur Rahman
+              <h4 className="text-green-600 text-xl font-extrabold">
+                FathurDev
               </h4>
             </Link>
 
             <div>
-              <ul className="flex space-x-6">
+              <ul className="flex space-x-2 md:space-x-6">
                 <li>
-                  <a className="hover:underline text-green-600" href="/portfolio">
+                  <a
+                    className="hover:underline text-green-600"
+                    href="/portfolio"
+                  >
                     Portfolio
                   </a>
                 </li>
@@ -54,8 +57,8 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
 
         <footer className="bg-slate-800">
-          <div className="max-w-screen-xl mx-auto px-8 py-8 flex flex-col lg:flex-row justify-between text-sm">
-            <p>Copyright Fathur Rahman &copy; {new Date().getFullYear()}</p>
+          <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-8 flex flex-col lg:flex-row justify-between text-sm">
+            <p>Copyright FathurDev &copy; {new Date().getFullYear()}</p>
 
             <p>Powered by NextJS 14, TailwindCSS and Vercel.</p>
           </div>
