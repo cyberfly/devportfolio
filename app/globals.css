@@ -9,3 +9,8 @@ body {
 .prose {
   @apply w-full;
 }
+
+.embed_video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
