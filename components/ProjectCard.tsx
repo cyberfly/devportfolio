@@ -20,9 +20,12 @@ const ProjectCard = (props: IProjectProps) => {
       </div>
 
       <div>
-        {project.metadata.tags.map((stack) => (
-          <span className="bg-green-500 rounded text-sm text-green-900 px-1 mr-2">
-            {stack}
+        {project.metadata.tags.map((tag, index) => (
+          <span
+            key={index}
+            className="bg-green-500 rounded text-sm text-green-900 px-1 mr-2"
+          >
+            {tag}
           </span>
         ))}
       </div>

@@ -5,6 +5,7 @@ export type Article = {
   metadata: Metadata & {
     slug: string;
     title: string;
+    tags: string[];
     categories?: string[];
     date?: string;
     image?: string;
@@ -23,4 +24,10 @@ export type Project = {
     image?: string;
   };
   component: any;
+  readingTime: string;
+};
+
+export type Skill = {
+  name: string;
+  image: string;
 };

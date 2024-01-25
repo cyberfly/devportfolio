@@ -13,8 +13,8 @@ export default async function Blog() {
           </h3>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-4">
-            {articles.map((article) => (
-              <ArticleCard article={article} />
+            {articles.map((article, index) => (
+              <ArticleCard key={index} article={article} />
             ))}
           </div>
         </div>

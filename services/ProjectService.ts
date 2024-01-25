@@ -1,10 +1,11 @@
 import { Project } from "@/types";
 
-const importAllProjects = (r): Promise<Project[]> =>
+const importAllProjects = (r: any): Promise<Project[]> =>
   Promise.all(
-    r.keys().map(async (fileName) => {
+    r.keys().map(async (fileName: string) => {
       const module = r(fileName);
-      const slug = fileName.substr(2).replace(/\/page\.mdx$/, "");
+
+      const slug = fileName.substring(2).replace(/\/page\.mdx$/, "");
 
       return {
         slug,
@@ -18,18 +19,25 @@ const importAllProjects = (r): Promise<Project[]> =>
 export const getAllProjects = async (): Promise<Project[]> => {
   const import_projects = await importAllProjects(
     //@ts-ignore
-    require.context("@/app/(portfolio)/portfolio/p/", true, /^\.\/[^\/]+\/page\.mdx$/)
+    require.context(
+      "@/app/(portfolio)/portfolio/p/",
+      true,
+      /^\.\/[^\/]+\/page\.mdx$/
+    )
   );
 
   // sort by metadata.date
 
   import_projects.sort((a, b) => {
-    if (a.metadata.date < b.metadata.date) {
-      return 1;
+    if (a.metadata.date && b.metadata.date) {
+      if (a.metadata.date < b.metadata.date) {
+        return 1;
+      }
+      if (a.metadata.date > b.metadata.date) {
+        return -1;
+      }
     }
-    if (a.metadata.date > b.metadata.date) {
-      return -1;
-    }
+
     return 0;
   });
 

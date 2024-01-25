@@ -1,4 +1,10 @@
-const SkillCard = (props) => {
+import { Skill } from "@/types";
+
+interface ISkillCardProps {
+  skill: Skill;
+}
+
+const SkillCard = (props: ISkillCardProps) => {
   const { skill } = props;
 
   return (

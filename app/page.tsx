@@ -65,8 +65,8 @@ export default async function Home() {
           </p>
 
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4">
-            {skills.map((skill) => (
-              <SkillCard skill={skill} />
+            {skills.map((skill, index) => (
+              <SkillCard key={index} skill={skill} />
             ))}
           </div>
         </div>
@@ -81,8 +81,8 @@ export default async function Home() {
           </p>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
-            {projects.map((project) => (
-              <ProjectCard project={project} />
+            {projects.map((project, index) => (
+              <ProjectCard key={index} project={project} />
             ))}
           </div>
         </div>
@@ -93,8 +93,8 @@ export default async function Home() {
           <h3 className="text-3xl font-bold mb-8">Latest from Blog</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
-            {articles.map((article) => (
-              <ArticleCard article={article} />
+            {articles.map((article, index) => (
+              <ArticleCard key={index} article={article} />
             ))}
           </div>
         </div>
