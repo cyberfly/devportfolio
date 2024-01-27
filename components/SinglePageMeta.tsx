@@ -20,7 +20,7 @@ const SinglePageMeta = (props: ISinglePageMetaProps) => {
           {metadata.tags.map((tag: string, index: number) => (
             <span
               key={index}
-              className="bg-green-500 rounded text-sm text-green-900 px-1 mr-2"
+              className="bg-green-500 rounded text-sm text-gray-800 px-1 mr-2"
             >
               {tag}
             </span>

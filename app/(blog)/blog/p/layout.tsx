@@ -15,7 +15,7 @@ export default async function PostLayout(props: IPostLayoutProps) {
 
   return (
     <div>
-      <div className="max-w-screen-xl mx-auto px-4 py-8">
+      <div className="max-w-screen-xl mx-auto px-4 pt-8 pb-20">
         <SinglePageMeta
           metadata={article.metadata}
           extra_classname="mx-auto mb-4 max-w-4xl"

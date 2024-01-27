@@ -16,8 +16,8 @@ export default async function Home() {
   return (
     <>
       <section className="bg-slate-800">
-        <div className="max-w-screen-xl mx-auto flex flex-row justify-between px-4 md:px-8 pb-10 md:py-20">
-          <div className="pr-4 md:pr-0">
+        <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between px-4 md:px-8 pb-10 md:py-20">
+          <div className="order-2 md:order-1">
             <h3 className="text-4xl md:text-6xl font-bold mb-4">
               Hi, I am <span className="block md:inline">Fathur Rahman</span>
             </h3>
@@ -37,12 +37,12 @@ export default async function Home() {
             </div>
           </div>
 
-          <div>
+          <div className="order-1 md:order-2 mb-4 md:mb-0">
             <Image
-              src="/profile.jpg"
-              width={200}
-              height={200}
-              className="rounded-lg h-auto ring-4 ring-slate-900"
+              src="/profile-alt.jpg"
+              width={250}
+              height={250}
+              className="w-[150px] md:w-[250px] mx-auto rounded-full h-auto ring-1 ring-slate-950"
               alt="Profile picture"
             />
           </div>
@@ -50,7 +50,7 @@ export default async function Home() {
       </section>
 
       <section>
-        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-20">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-10 md:py-20">
           <h3 className="text-3xl font-bold mb-8">A little bit about me</h3>
 
           <p className="text-xl mb-8 text-slate-200">
@@ -74,7 +74,7 @@ export default async function Home() {
       </section>
 
       <section className="bg-slate-800">
-        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-20">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-10 md:py-20">
           <h3 className="text-3xl font-bold mb-8">Portfolio</h3>
 
           <p className="text-xl mb-8">
@@ -90,7 +90,7 @@ export default async function Home() {
       </section>
 
       <section>
-        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-20">
+        <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-10 md:py-20">
           <h3 className="text-3xl font-bold mb-8">Latest from Blog</h3>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
