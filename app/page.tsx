@@ -18,16 +18,16 @@ export default async function Home() {
       <section className="bg-slate-800">
         <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between px-4 md:px-8 pb-10 md:py-20">
           <div className="order-2 md:order-1">
-            <h3 className="text-4xl md:text-6xl font-bold mb-4">
+            <h3 className="text-center md:text-left text-4xl md:text-6xl font-bold mb-4">
               Hi, I am <span className="block md:inline">Fathur Rahman</span>
             </h3>
-            <p className="text-2xl md:text-4xl mb-4 text-slate-200">
+            <p className="text-center md:text-left text-2xl md:text-4xl mb-4 text-slate-200">
               Software Engineer at LaLoka Labs Co
             </p>
-            <p className="text-2xl md:text-4xl mb-12 font-semibold">
+            <p className="text-center md:text-left text-2xl md:text-4xl mb-12 font-semibold">
               i Code. i Lead. i Manage. i Teach.
             </p>
-            <div>
+            <div className="text-center md:text-left">
               <a
                 className="rounded text-2xl text-slate-800 bg-green-600 hover:bg-green-700 px-4 py-2"
                 href="/contact"
