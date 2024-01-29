@@ -22,9 +22,9 @@ export default async function Home() {
               Hi, I am <span className="block md:inline">Fathur Rahman</span>
             </h3>
             <p className="text-center md:text-left text-2xl md:text-4xl mb-4 text-slate-200">
-              Software Engineer at LaLoka Labs Co
+              Software Engineer at <span className="block md:inline">LaLoka Labs Co</span>
             </p>
-            <p className="text-center md:text-left text-2xl md:text-4xl mb-12 font-semibold">
+            <p className="text-center md:text-left text-xl md:text-4xl mb-12 font-semibold">
               i Code. i Lead. i Manage. i Teach.
             </p>
             <div className="text-center md:text-left">
