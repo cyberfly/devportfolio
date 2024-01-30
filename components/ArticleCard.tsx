@@ -19,7 +19,16 @@ const ArticleCard = (props: IArticleProps) => {
         <p className="mb-8 text-slate-300">{article.metadata.description}</p>
       </div>
 
-      <div></div>
+      <div>
+        {article.metadata.tags.map((tag, index) => (
+          <span
+            key={index}
+            className="bg-green-500 rounded text-sm text-gray-800 px-1 mr-2"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
     </Link>
   );
 };

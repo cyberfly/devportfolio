@@ -22,7 +22,8 @@ export default async function Home() {
               Hi, I am <span className="block md:inline">Fathur Rahman</span>
             </h3>
             <p className="text-center md:text-left text-2xl md:text-4xl mb-4 text-slate-200">
-              Software Engineer at <span className="block md:inline">LaLoka Labs Co</span>
+              Software Engineer at{" "}
+              <span className="block md:inline">LaLoka Labs Co</span>
             </p>
             <p className="text-center md:text-left text-xl md:text-4xl mb-12 font-semibold">
               i Code. i Lead. i Manage. i Teach.
@@ -54,15 +55,25 @@ export default async function Home() {
           <h3 className="text-3xl font-bold mb-8">A little bit about me</h3>
 
           <p className="text-xl mb-8 text-slate-200">
-            Experienced Software Engineer with more than 10 years professional
-            experience. Equipped with a diverse skill set to efficiently deliver
-            software solutions to any organization.
+            Experienced Software Engineer with more than 10 years of
+            professional experience. Equipped with a diverse skill set to
+            efficiently deliver software solutions to any organization.
+            Currently working at{" "}
+            <a
+              className="underline"
+              href="https://lalokalabs.co"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LaLoka Labs Co
+            </a>{" "}
+            as a Front End Engineer.
           </p>
 
           <h3 className="text-3xl font-bold mb-8">Skills</h3>
 
           <p className="text-xl mb-8 text-slate-200">
-            Here are some of my skills that I have acquired over the years
+            Here are some of my skills that I have acquired over the years.
           </p>
 
           <div className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-4">
@@ -78,7 +89,7 @@ export default async function Home() {
           <h3 className="text-3xl font-bold mb-8">Portfolio</h3>
 
           <p className="text-xl mb-8">
-            Here are some of my recent works that I have done
+            Here are some of my recent works that I have done.
           </p>
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-4">
