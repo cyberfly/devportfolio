@@ -1,6 +1,6 @@
 export const metadata = {
   title: "How to write Clean Code - Part 1",
-  description: `Tips to write clean code`,
+  description: `Tips to write clean and maintainable code`,
   date: "2024-02-06",
   tags: ["Tutorial"],
   authors: ["Fathur"],
@@ -8,7 +8,7 @@ export const metadata = {
 
 # How to write Clean Code - Part 1 
 
-In this post, I will share with you some useful tips on how to write clean code. We will use Javascript as examples since it is the most widely used programming language and easy to understand.
+In this post, I will share with you some useful tips on how to write clean and easy to maintain code. We will use Javascript as examples since it is the most widely used programming language and easy to understand.
 
 ### Initial code
 
@@ -78,19 +78,17 @@ function getFeaturedImageUrl(keyword) {
   // return image url
   return featured_image.src.medium;
 }
-
-
 ```
 
-### Problems
+### Issues
 
-1. The function `getFeaturedImageUrl()` has too much responsibility; it needs to fetch images from the API, and it also has logic on how to return the image URL. To achieve clean code, you should try to reduce the responsibility of any function or class.
+1. The function `getFeaturedImageUrl()` has too much responsibility; it needs to fetch images from the API, and it also has logic on how to return the image URL. What if we need to add more requirements later?
 
-2. Since `getFeaturedImageUrl()` only returns a single image URL, it cannot be reused when there is a requirement to get an array of images in other functions.
+2. Pexels API response inside `getFeaturedImageUrl()` contains an array of images, but the function only returns a single image URL. What if other code needs to get an array of images from Pexels? This function cannot be reused because it only returns a single URL.
 
 ### Updated code - V2
 
-Let's refactor the code to solve the problems above.
+Let's refactor the code to address the mentioned issues.
 
 ```
 
@@ -128,13 +126,11 @@ function getPexelImages(keyword) {
 
 2. `getPexelImages(keyword)` now only has a single responsibility - how to return Pexels images.
 
-3. If others need an array of images, they can just call the `getPexelImages(keyword)` function.
-
 ### New Requirements
 
 Your manager then comes with new requirements:
 
-1. The featured image must be hosted on S3.
+1. The featured image must be hosted on Amazon S3.
 
 ### Updated code - V3
 
@@ -156,12 +152,46 @@ function getPexelImages(keyword) {
 }
 
 function getS3Image(image) {
-  // do something to upload into S3
-  // return S3 image object
+  // logic to upload into S3
+  // return S3 image data
 }
 ```
 
-### Single Responsibility
+### Flexibility
+
+We now have more flexibility with our code.
+
+1. Pexels images can now be reused elsewhere by calling `getPexelImages`. Example:
+
+```
+function getHeroImages() {
+  const images = getPexelImages('corporate');
+
+  return images;
+}
+```
+
+2. If the requirement changes again, and we don't need the S3 Image anymore, just comment out the part of calling the function. Example:
+
+```
+function getFeaturedImageUrl(keyword) {
+
+  const keyword_images = getPexelImages(keyword);
+
+  const first_image = keyword_images[0];
+
+  /*
+  const image_s3 = getS3Image(first_image);
+  return image_s3.url;
+  */
+
+  return first_image.src.medium;
+}
+```
+
+You should notice by now that `getPost()` only changed once because all the image-related codes were handled by `getFeaturedImageUrl()`. Awesome!
+
+### Less Responsibility
 
 Let's summarize the responsibility for each function:
 
@@ -177,7 +207,7 @@ Let's summarize the responsibility for each function:
 
 1. Try to give less responsibility to a function or class. The less, the better!
 
-2. You should notice by now that `getPost()` only changed once because all the image-related codes were handled by `getFeaturedImageUrl()`. Awesome!
+2. Adopt a modular design where each function has a single responsibility. This makes the code more maintainable and flexible to accommodate future changes.
 
 3. The examples in this post, of course, can still be optimized, but for this tutorial, this is enough to give you the idea on how to improve your code.
 
