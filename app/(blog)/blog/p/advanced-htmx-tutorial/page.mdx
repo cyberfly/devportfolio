@@ -12,6 +12,22 @@ HTMX is a great library that allows you to build modern web applications without
 
 In this post, I’ll be sharing some advanced HTMX techniques and tips that I’ve discovered along the way.
 
+### Attaching Fields to an HTMX Request Payload
+
+When sending a request to the server with HTMX, you can attach additional fields to the request payload by using the `hx-include` attribute.
+
+```
+<input id="first_name" type="text" name="first_name" />
+<input id="email" type="text" name="email" />
+
+<button
+  hx-post="/api/action"
+  hx-include="#first_name, #email"
+>
+  Submit
+</button>
+```
+
 ### Inline HTMX events
 
 HTMX has a dedicated documentation page on HTMX events, but it currently lacks examples for inline events.
@@ -260,9 +276,36 @@ This will work
 </div>
 ```
 
-### Reload HTMX element after swap
+### Restarting HTMX Polling After It Has Been Stopped
 
-You can reload the HTMX element after the swap event.
+Once HTMX polling is stopped, it cannot be restarted directly. To resume polling, you need to reload the HTMX element.
+
+Here’s an example of how to reload the HTMX element. 
+
+Polling remains active until `FETCHING_TITLES` is set to `false`, at which point it will stop.
+
+To restart polling, reload the HTMX element and set `FETCHING_TITLES` to `true`.
+
+```
+<div
+    id="title_fetcher" 
+    hx-get="/api/action"
+    hx-trigger="every 10s [FETCHING_TITLES]"
+    hx-on:htmx:after-request="reloadHTMXElement('title_fetcher')"
+    >
+</div>
+```
+
+```
+window.reloadHTMXElement = function (element_id) {
+  const htmx_element = htmx.find(element_id);
+  const clone = htmx_element.cloneNode();
+
+  htmx_element.parentNode.insertBefore(clone, htmx_element);
+  htmx.remove(htmx_element);
+  htmx.process(element_id);
+};
+```
 
 ### Conclusion
 
