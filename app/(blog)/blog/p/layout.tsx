@@ -20,7 +20,7 @@ export default async function PostLayout(props: IPostLayoutProps) {
           metadata={article.metadata}
           extra_classname="mx-auto mb-4 max-w-4xl"
         ></SinglePageMeta>
-        <article className="prose md:prose-md lg:prose-lg dark:prose-invert prose-img:rounded-lg mx-auto max-w-4xl">
+        <article className="prose md:prose-md lg:prose-lg prose-invert prose-img:rounded-lg mx-auto max-w-4xl">
           {children}
         </article>
       </div>
