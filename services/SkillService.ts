@@ -20,6 +20,10 @@ const skills = [
     image: "/tailwind.png",
   },
   {
+    name: "Node JS",
+    image: "/nodejs.png",
+  },
+  {
     name: "TailwindCSS",
     image: "/git.png",
   },
@@ -54,6 +58,14 @@ const skills = [
   {
     name: "TypeScript",
     image: "/typescript.png",
+  },
+  {
+    name: "CI/CD",
+    image: "/cicd.png",
+  },
+  {
+    name: "Docker",
+    image: "/docker.png",
   },
   {
     name: "IT Trainer",
