@@ -36,6 +36,25 @@ To use inline events in HTMX, simply apply the `hx-on` attribute and use snake c
 
 Here’s an example based on the documentation found at HTMX Events:
 
+| **Event**               | **Inline Event (`hx-on`)**            |
+|-------------------------|---------------------------------------|
+| `htmx:beforeRequest`    | `hx-on:htmx:before-request`          |
+| `htmx:configRequest`    | `hx-on:htmx:config-request`          |
+| `htmx:beforeOnLoad`     | `hx-on:htmx:before-on-load`          |
+| `htmx:afterOnLoad`      | `hx-on:htmx:after-on-load`           |
+| `htmx:beforeSwap`       | `hx-on:htmx:before-swap`             |
+| `htmx:afterSwap`        | `hx-on:htmx:after-swap`              |
+| `htmx:beforeSettle`     | `hx-on:htmx:before-settle`           |
+| `htmx:afterSettle`      | `hx-on:htmx:after-settle`            |
+| `htmx:responseError`    | `hx-on:htmx:response-error`          |
+| `htmx:sendError`        | `hx-on:htmx:send-error`              |
+| `htmx:invalidResponse`  | `hx-on:htmx:invalid-response`        |
+| `htmx:triggered`        | `hx-on:htmx:triggered`               |
+| `htmx:load`             | `hx-on:htmx:load`                    |
+
+
+Example usage
+
 ```
 <button
   hx-post="/api/action"
@@ -50,6 +69,45 @@ Here’s an example based on the documentation found at HTMX Events:
   id="content_container')"_container">
 </div>
 
+```
+
+### Event Delegation
+
+A common pattern with HTMX is to return a partial HTML file in response to an HTMX request.
+
+For example, if you have a partial template called `form.html`, you can return this partial with previously entered fields and field-specific error messages if backend validation fails.
+
+```
+<div>
+  <!-- include form.html -->
+  <form 
+    hx-post="/api/action"
+    hx-on:htmx:after-request="alert('Request finished!')"
+    hx-on:htmx:after-swap="alert('Dom Updated!')"
+    >
+    
+  </form>
+  <!-- end include form.html -->
+<div>
+```
+
+The issue with the example above is that the `htmx-after-request` and `htmx-after-swap` event won’t work because the original HTML is replaced by the new response HTML.
+
+To resolve this, you can use event delegation by moving the event listener to a parent element. This ensures that the event will continue to work, even after the content is replaced.
+
+```
+<div
+  hx-on:htmx:after-request="alert('Request finished!')"
+  hx-on:htmx:after-swap="alert('Dom Updated!')"
+  >
+  <!-- include form.html -->
+  <form 
+    hx-post="/api/action"
+    >
+    
+  </form>
+  <!-- end include form.html -->
+<div>
 ```
 
 ### Multiple HTMX Event Callbacks
